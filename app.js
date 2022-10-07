@@ -4,8 +4,12 @@ import bodyParser from 'body-parser';
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 import https from "https";
+
+import path from 'path';
+const __dirname = path.resolve();
+
 app.get("/",function(req,res){
-    res.sendFile(__dirname+"/public/signup.html");
+    res.sendFile(__dirname + "/public/signup.html");
 })
 
 
