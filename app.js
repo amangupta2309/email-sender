@@ -1,12 +1,12 @@
-import express from 'express';
+const express = require("express");
 const app = express();
-import bodyParser from 'body-parser';
+const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-import https from "https";
+const https = require("https");
 
-import path from 'path';
-const __dirname = path.resolve();
+// const path = require("path");
+// const __dirname = path.resolve();
 
 app.get("/",function(req,res){
     res.sendFile(__dirname + "/public/signup.html");
