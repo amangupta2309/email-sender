@@ -4,15 +4,16 @@ import bodyParser from 'body-parser';
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 import https from "https";
-var fs = require('fs');
 app.get("/",function(req,res){
     res.sendFile(__dirname+"/public/signup.html");
 })
 
-const secrets = require("./secret.js")
-const userid = secrets.userid;
-const apikey = secrets.apikey;
 
+
+require("dotenv").config()
+
+const userid = process.env.userid;
+const apikey = process.env.apikey;
 app.post("/",function(req,res){
    const fname = req.body.fname;
    const lname = req.body.lname;
